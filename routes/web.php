@@ -11,24 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
-});
+Route::get('/', 'PagesController@index')->name('index');
 
-Route::get('/about', function () {
-    return view('pages.about');
-});
+Route::get('/about','PagesController@about')->name('about');
 
-Route::get('/contact', function () {
-    return view('pages.contact');
-});
+Route::get('/contact','PagesController@contact')->name('contact');
 
-Route::post('/contact', function () {
+Route::post('/contact','PagesController@store')->name('contact.store');
 
-    return view('pages.thankyou');
-
-    //$data= request()->all();
-
-    //echo "Email:" . $data['email']. '<br>';
-    //echo "Body:" .$data['body'];
-});
+Route::get('/thanks/{name}','PagesController@thanks')->name('thanks');
